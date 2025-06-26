@@ -1,0 +1,779 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --orange: #ffa500;
+    --border: .1rem solid black;
+    --box-shadow: 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    --white: #eee;
+}
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+::selection {
+    background: var(--orange);
+    color: #fff;
+}
+
+html body {
+    overflow-x: hidden;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-padding-top: 6rem;
+    scroll-behavior: smooth;
+    overflow: scroll;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: var(--orange);
+    color: #fff;
+    padding: .8rem 3rem;
+    border: .2rem solid var(--orange);
+    cursor: pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover {
+    background: rgba(255, 165, 0, .2);
+    color: orange;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 9%;
+}
+
+header .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+header .logo span {
+    color: var(--orange);
+}
+
+header .navbar a {
+    color: #fff;
+    font-size: 2rem;
+    margin: 0.8rem;
+}
+
+header .navbar a:hover {
+    color: var(--orange);
+}
+
+header .icons {
+    font-size: 2.0rem;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+
+header .icons :hover {
+    color: var(--orange);
+}
+
+header .search-bar-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 2rem;
+    background: #333;
+    border-top: .1rem solid rgba(255, 255, 255, .2);
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+header .search-bar-container.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+header .search-bar-container #search-bar {
+    width: 100%;
+    padding: 1rem;
+    text-transform: none;
+    color: #333;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+}
+
+header .search-bar-container label {
+    color: #fff;
+    cursor: pointer;
+    font-size: 3rem;
+    margin-left: 1.5rem;
+}
+
+header .search-bar-container label:hover {
+    color: var(--orange);
+}
+
+.login-form-container {
+    position: fixed;
+    top: -120%;
+    left: 0;
+    z-index: 10000;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form-container.active {
+    top: 0;
+}
+
+.login-form-container form {
+    margin: 2rem;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    background: #fff;
+    width: 50rem;
+}
+
+.login-form-container form h3 {
+    font-size: 3rem;
+    color: #444;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.login-form-container form .box {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.7rem;
+    color: #333;
+    margin: .6rem 0;
+    border: 1rem solid rgba(0, 0, 0, 0.3);
+    text-transform: none;
+}
+
+.login-form-container form .box:focus {
+    border-color: var(--orange);
+}
+
+.login-form-container form #remember {
+    margin: 2rem 0;
+}
+
+.login-form-container form label {
+    font-size: 1.5rem;
+}
+
+.login-form-container form .btn {
+    display: block;
+    width: 100%;
+}
+
+.login-form-container form p {
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: #666;
+}
+
+.login-form-container form p a {
+    color: var(--orange);
+}
+
+.login-form-container form p a:hover {
+    color: #333;
+    text-decoration: underline;
+}
+
+.login-form-container #form-close {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+#menu-bar {
+    color: #fff;
+    border: 1rem solid #fff;
+    border-radius: .5rem;
+    font-size: 3rem;
+    padding: .5rem 1.2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    z-index: 0;
+}
+
+.home {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    background-image: url(../images/Mahakaleshwar.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    animation: change 20s infinite linear;
+}
+
+.home .content h3 {
+    font-size: 4.5rem;
+    color: #fff5f5;
+    text-transform: uppercase;
+    text-shadow: 5px 5px black;
+}
+
+.home .content p {
+    font-size: 2.5rem;
+    color: #ffffff;
+    padding: .5rem 0;
+    text-shadow: 0.3rem .5rem rgba(0, 0, 0, .1);
+}
+
+@keyframes change {
+    0% {
+        background-image: url(../images/Mahakaleshwar.jpg);
+    }
+
+    10% {
+        background-image: url(../images/Mahakal.webp);
+    }
+
+    20% {
+        background-image: url(../images/harsidhi.webp);
+    }
+
+    30% {
+        background-image: url(../images/shri-ram-ghat.png);
+    }
+
+}
+
+/* .home .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.home .controls {
+    padding: 1rem;
+    border-radius: 5rem; 
+    background: rgba(0, 0, 0, .7);
+    position: relative;
+    top:4rem; 
+ } 
+
+ .home .controls .image-btn {
+    height: 1.5rem;
+    width: 1.5rem;
+    display: inline-block;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin: 0.5rem;
+}
+
+.home .controls .image-btn.active {
+    background: var(--orange);
+}  */
+
+.footer {
+    background: url(../images/bg2.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 3rem;
+    color: #bbb;
+}
+
+.footer .box-container .box2 h3 {
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+    color: white;
+    text-decoration: underline #777576;
+    text-decoration-thickness: 5px;
+}
+
+.footer .box-container .box2 a {
+    color: var(--light-white);
+    font-size: 1.8rem;
+    padding-bottom: 1.5rem;
+    display: block;
+}
+
+.footer .box-container .box2 a i {
+    padding-right: .5rem;
+    transition: .2s linear;
+}
+
+.footer .box-container .box2 a:hover i {
+    padding-right: 2rem;
+}
+
+.footer .credit {
+    text-align: center;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: .2rem solid black;
+    font-size: 2rem;
+}
+
+.footer .credit span {
+    color: rgb(49, 0, 139);
+}
+
+.services {
+    background-color: #e0dcdc;
+}
+
+.services .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1.5rem;
+}
+
+.services .box-container .box2 {
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.services .box-container .box2:hover {
+    background: var(--orange);
+}
+
+.services .box-container .box2 h3 {
+    font-size: 1.7rem;
+    padding-top: 1rem;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: black;
+    text-shadow: 5px 5px whitesmoke;
+}
+
+.heading span {
+    font-size: 3.5rem;
+    background: rgba(255, 165, 0, .2);
+    color: var(--orange);
+    border-radius: .5rem;
+    padding: .2rem 1rem;
+}
+
+.home-about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(248, 36, 149);
+}
+
+.home-about .image {
+    flex: 1 1 41rem;
+
+}
+
+.home-about .image img {
+    width: 100%;
+    border: 2px solid black;
+    box-shadow: 10px 10px 12px rgb(228, 224, 224);
+}
+
+.home-about .content {
+    flex: 1 1 41rem;
+    padding: 3rem;
+    background: rgb(199, 223, 223);
+    margin: 5px;
+}
+
+.home-about .content h3 {
+    font-size: 3rem;
+    color: black;
+}
+
+.home-about .content p {
+    font-size: 1.5rem;
+    color: black;
+    padding: 1rem 0;
+    line-height: 2;
+}
+
+.home-packages {
+    background: #e0dcdc;
+}
+
+.home-packages .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.home-packages .box-container .box {
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    background: var(--white);
+}
+
+.home-packages .box-container .box:hover .image img {
+    transform: scale(1.1);
+}
+
+.home-packages .box-container .box .image {
+    height: 25rem;
+    overflow: hidden;
+}
+
+.home-packages .box-container .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: .2s linear;
+}
+
+.home-packages .box-container .box .content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.home-packages .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: black;
+}
+
+.home-packages .box-container .box .content p {
+    font-size: 1.5rem;
+    color: rgb(66, 65, 65);
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.home-packages .load-more {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.booking .heading {
+    /* font-size:2.5rem; 
+    font-weight: bold;  */
+    margin-top: 60px;
+}
+
+.booking .book-form {
+    padding: 2rem;
+    background: rgb(218, 216, 216);
+}
+
+.booking .book-form .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.booking .book-form .flex .inputbox {
+    flex: 1 1 41rem;
+
+}
+
+.booking .book-form .flex .inputbox input {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    font-size: 1.6rem;
+    color: black;
+    text-transform: none;
+    margin-top: 1.5rem;
+    border: var(--border);
+}
+
+.booking .book-form .flex .inputbox input:focus {
+    background: black;
+    color: var(--white);
+}
+
+.booking .book-form .flex .inputbox input:focus::placeholder {
+    color: var(--white);
+}
+
+.booking .book-form .flex .inputbox span {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+.booking .book-form .btn {
+    margin-top: 2rem;
+    background-color: #333;
+    border: none;
+}
+
+.reviews {
+    background: #ffffff;
+}
+
+.reviews .reviews-slider {
+    padding-bottom: 2rem;
+}
+
+.reviews .box {
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    user-select: none;
+}
+
+.reviews .box .star i {
+    font-size: 1.7rem;
+    color: var(--orange);
+}
+
+.reviews .box p {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.reviews .box h3 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.reviews .box img {
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.gallery {
+    background-color: #888788;
+}
+
+.gallery .heading {
+    margin-top: 60px;
+}
+
+.gallery .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.gallery .box-container .box {
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .1);
+    border: 1rem solid #fff;
+    border-radius: .5rem;
+    flex: 1 1 30rem;
+    height: 25rem;
+    position: relative;
+}
+
+.gallery .box-container .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.gallery .box-container .box .content {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, .7);
+    padding: 2rem;
+    padding-top: 5rem;
+    cursor: pointer;
+}
+
+.gallery .box-container .box:hover .content {
+    top: 0;
+}
+
+.gallery .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: var(--orange);
+}
+
+.gallery .box-container .box .content p {
+    font-size: 1.5rem;
+    color: #eee;
+    padding: .5rem 0;
+}
+
+.packages{
+background:#e0dcdc;
+
+}
+
+.packages .heading {
+    margin-top: 60px;
+}
+
+.packages .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+
+.packages .box-container .box {
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    background: var(--white);
+    /* display: none; */
+}
+
+/* .packages .box-container .box:nth-child(1),
+.packages .box-container .box:nth-child(2),
+.packages .box-container .box:nth-child(3),
+.packages .box-container .box:nth-child(4),
+.packages .box-container .box:nth-child(5),
+.packages .box-container .box:nth-child(6) {
+    display: inline-block;
+} */
+
+
+.packages .box-container .box:hover .image img {
+    transform: scale(1.1);
+}
+
+.packages .box-container .box .image {
+    height: 25rem;
+    overflow: hidden;
+}
+
+.packages .box-container .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: .2s linear;
+}
+
+.packages .box-container .box .content {
+    padding: 2rem;
+    text-align: center;
+}
+
+.packages .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: black;
+}
+
+.packages .box-container .box .content p {
+    font-size: 1.5rem;
+    color: rgb(66, 65, 65);
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.packages .load-more {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+@media(max-width:1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media(max-width:991px) {
+    header {
+        padding: 2rem;
+    }
+}
+
+@media(max-width:768px) {
+    #menu-bar {
+        display: initial;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: #333;
+        border-top: .1rem solid rgba(255, 255, 255, .2);
+        padding: 1rem 2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    header .navbar a {
+        display: block;
+        border-radius: .5rem;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        background: #222;
+    }
+
+}
+
+@media(max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .heading span {
+        font-size: 2.5rem;
+    }
+}
